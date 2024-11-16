@@ -1,0 +1,77 @@
+---
+/* No frontmatter is needed unless you're passing props or importing other components */
+---
+
+<nav
+  class='flex justify-between items-center bg-white px-6 py-4 border-b border-redPinstripe'
+>
+  <div class='text-2xl font-bold text-redPinstripe'>Wicomoforge</div>
+  <ul class='flex items-center space-x-6'>
+    <!-- Artwork menu with dropdown -->
+    <li class='relative'>
+      <button id='artworkButton' class='hover:underline'>Artwork</button>
+      <ul
+        id='artworkMenu'
+        class='absolute hidden bg-white border border-gray-200 mt-2 py-2 z-10 w-48 shadow-md'
+      >
+        <li>
+          <a href='/artwork/railings' class='block px-4 py-2 hover:bg-gray-100'
+            >Railings</a>
+        </li>
+        <li>
+          <a href='/artwork/gates' class='block px-4 py-2 hover:bg-gray-100'
+            >Gates</a>
+        </li>
+        <li>
+          <a href='/artwork/furniture' class='block px-4 py-2 hover:bg-gray-100'
+            >Furniture</a>
+        </li>
+        <li>
+          <a
+            href='/artwork/metal-drawings'
+            class='block px-4 py-2 hover:bg-gray-100'>Metal Drawings</a>
+        </li>
+        <li>
+          <a href='/artwork/paintings' class='block px-4 py-2 hover:bg-gray-100'
+            >Paintings</a>
+        </li>
+        <li>
+          <a
+            href='/artwork/garden-work'
+            class='block px-4 py-2 hover:bg-gray-100'>Garden Work</a>
+        </li>
+        <li>
+          <a
+            href='/artwork/wall-hangings'
+            class='block px-4 py-2 hover:bg-gray-100'>Wall Hangings</a>
+        </li>
+        <li>
+          <a
+            href='/artwork/sculptures'
+            class='block px-4 py-2 hover:bg-gray-100'>Sculptures</a>
+        </li>
+      </ul>
+    </li>
+    <!-- About menu -->
+    <li><a href='/about' class='hover:underline'>About</a></li>
+  </ul>
+</nav>
+
+<script>
+  // JavaScript to toggle the submenu on click
+  document
+    .getElementById('artworkButton')
+    .addEventListener('click', function () {
+      const menu = document.getElementById('artworkMenu')
+      menu.classList.toggle('hidden')
+    })
+
+  // Optional: Close the menu if clicked outside
+  document.addEventListener('click', function (event) {
+    const button = document.getElementById('artworkButton')
+    const menu = document.getElementById('artworkMenu')
+    if (!button.contains(event.target) && !menu.contains(event.target)) {
+      menu.classList.add('hidden')
+    }
+  })
+</script>
