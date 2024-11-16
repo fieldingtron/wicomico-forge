@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        redPinstripe: '#ff0000',
+        redPinstripe: '#ff3333',
       },
     },
   },

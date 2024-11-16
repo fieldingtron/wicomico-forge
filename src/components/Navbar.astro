@@ -2,76 +2,127 @@
 /* No frontmatter is needed unless you're passing props or importing other components */
 ---
 
-<nav
-  class='flex justify-between items-center bg-white px-6 py-4 border-b border-redPinstripe'
->
-  <div class='text-2xl font-bold text-redPinstripe'>Wicomoforge</div>
-  <ul class='flex items-center space-x-6'>
-    <!-- Artwork menu with dropdown -->
-    <li class='relative'>
-      <button id='artworkButton' class='hover:underline'>Artwork</button>
-      <ul
-        id='artworkMenu'
-        class='absolute hidden bg-white border border-gray-200 mt-2 py-2 z-10 w-48 shadow-md'
+<nav class='bg-white border-b'>
+  <div class='container mx-auto px-6 py-4 flex justify-between items-center'>
+    <div class='text-2xl font-bold'>Wicomoforge Garden Works</div>
+
+    <!-- Hamburger Menu -->
+    <button
+      id='menuToggle'
+      class='lg:hidden block text-gray-600 focus:outline-none'
+    >
+      <svg
+        xmlns='http://www.w3.org/2000/svg'
+        class='h-6 w-6'
+        fill='none'
+        viewBox='0 0 24 24'
+        stroke='currentColor'
       >
-        <li>
-          <a href='/artwork/railings' class='block px-4 py-2 hover:bg-gray-100'
-            >Railings</a>
-        </li>
-        <li>
-          <a href='/artwork/gates' class='block px-4 py-2 hover:bg-gray-100'
-            >Gates</a>
-        </li>
-        <li>
-          <a href='/artwork/furniture' class='block px-4 py-2 hover:bg-gray-100'
-            >Furniture</a>
-        </li>
-        <li>
-          <a
-            href='/artwork/metal-drawings'
-            class='block px-4 py-2 hover:bg-gray-100'>Metal Drawings</a>
-        </li>
-        <li>
-          <a href='/artwork/paintings' class='block px-4 py-2 hover:bg-gray-100'
-            >Paintings</a>
-        </li>
-        <li>
-          <a
-            href='/artwork/garden-work'
-            class='block px-4 py-2 hover:bg-gray-100'>Garden Work</a>
-        </li>
-        <li>
-          <a
-            href='/artwork/wall-hangings'
-            class='block px-4 py-2 hover:bg-gray-100'>Wall Hangings</a>
-        </li>
-        <li>
-          <a
-            href='/artwork/sculptures'
-            class='block px-4 py-2 hover:bg-gray-100'>Sculptures</a>
-        </li>
-      </ul>
-    </li>
-    <!-- About menu -->
-    <li><a href='/about' class='hover:underline'>About</a></li>
-  </ul>
+        <path
+          stroke-linecap='round'
+          stroke-linejoin='round'
+          stroke-width='2'
+          d='M4 6h16M4 12h16m-7 6h7'></path>
+      </svg>
+    </button>
+
+    <!-- Navbar Links -->
+    <ul
+      id='menu'
+      class='hidden lg:flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-6'
+    >
+      <li class='relative group'>
+        <button id='artworkButton' class='hover:underline lg:inline-block'>
+          Artwork
+        </button>
+        <ul
+          id='artworkMenu'
+          class='hidden lg:absolute bg-white border border-gray-200 mt-2 py-2 z-10 w-48 shadow-md'
+        >
+          <li>
+            <a
+              href='/artwork/railings'
+              class='block px-4 py-2 hover:bg-gray-100'>Railings</a
+            >
+          </li>
+          <li>
+            <a href='/artwork/gates' class='block px-4 py-2 hover:bg-gray-100'
+              >Gates</a
+            >
+          </li>
+          <li>
+            <a
+              href='/artwork/furniture'
+              class='block px-4 py-2 hover:bg-gray-100'>Furniture</a
+            >
+          </li>
+          <li>
+            <a
+              href='/artwork/metal-drawings'
+              class='block px-4 py-2 hover:bg-gray-100'>Metal Drawings</a
+            >
+          </li>
+          <li>
+            <a
+              href='/artwork/paintings'
+              class='block px-4 py-2 hover:bg-gray-100'>Paintings</a
+            >
+          </li>
+          <li>
+            <a
+              href='/artwork/garden-work'
+              class='block px-4 py-2 hover:bg-gray-100'>Garden Work</a
+            >
+          </li>
+          <li>
+            <a
+              href='/artwork/wall-hangings'
+              class='block px-4 py-2 hover:bg-gray-100'>Wall Hangings</a
+            >
+          </li>
+          <li>
+            <a
+              href='/artwork/sculptures'
+              class='block px-4 py-2 hover:bg-gray-100'>Sculptures</a
+            >
+          </li>
+          <!-- Other dropdown items... -->
+        </ul>
+      </li>
+      <li><a href='/about' class='hover:underline'>About</a></li>
+    </ul>
+  </div>
 </nav>
 
 <script>
-  // JavaScript to toggle the submenu on click
-  document
-    .getElementById('artworkButton')
-    .addEventListener('click', function () {
-      const menu = document.getElementById('artworkMenu')
-      menu.classList.toggle('hidden')
-    })
+  // Toggle mobile menu visibility
+  const menuToggle = document.getElementById('menuToggle')
+  const menu = document.getElementById('menu')
 
-  // Optional: Close the menu if clicked outside
-  document.addEventListener('click', function (event) {
-    const button = document.getElementById('artworkButton')
-    const menu = document.getElementById('artworkMenu')
-    if (!button.contains(event.target) && !menu.contains(event.target)) {
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('hidden')
+    menu.classList.toggle('flex')
+  })
+
+  // Artwork Dropdown Toggle (for mobile and desktop)
+  const artworkButton = document.getElementById('artworkButton')
+  const artworkMenu = document.getElementById('artworkMenu')
+
+  artworkButton.addEventListener('click', (e) => {
+    e.preventDefault() // Prevent link action
+    artworkMenu.classList.toggle('hidden')
+  })
+
+  // Close menus when clicking outside
+  document.addEventListener('click', (event) => {
+    if (
+      !menu.contains(event.target) &&
+      !menuToggle.contains(event.target) &&
+      !artworkMenu.contains(event.target) &&
+      !artworkButton.contains(event.target)
+    ) {
       menu.classList.add('hidden')
+      artworkMenu.classList.add('hidden')
     }
   })
 </script>

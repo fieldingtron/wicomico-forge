@@ -1,34 +1,88 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import Navbar from '../components/Navbar.astro'
+import { Icon } from 'astro-icon/components'
 ---
 
 <BaseLayout>
   <Navbar />
-  <header class='text-center py-20'>
-    <h1 class='text-4xl font-bold text-redPinstripe'>Welcome to Wicomoforge</h1>
+  <header class='text-center py-10 bg-white'>
+    <h1 class='text-4xl font-bold'>Wicomoforge Garden Works</h1>
     <p class='mt-4 text-lg'>
       Custom-made bespoke railings, gates, furniture, and sculptures.
     </p>
+    <img
+      src='/img/logo.png'
+      alt='Wicomoforge Logo'
+      class='w-64 h-auto mx-auto p-3'
+    />
   </header>
-  <main class='py-10'>
-    <section class='text-center'>
-      <h2 class='text-3xl font-semibold'>Our Artwork</h2>
-      <p class='mt-2 text-gray-600'>
-        Explore our wide range of handmade metalworks and custom art.
-      </p>
-      <div class='grid grid-cols-1 md:grid-cols-3 gap-6 mt-6 px-6'>
-        <div class='p-4 border border-gray-200 rounded-md shadow-sm'>
-          <h3 class='text-xl font-bold'>Railings</h3>
-          <p class='text-gray-500'>Beautifully crafted for your space.</p>
+  <main class='py-2 pt-2 bg-white'>
+    <section class='container mx-auto px-4'>
+      <h2 class='text-3xl font-semibold text-center mb-8'>Our Artwork</h2>
+      <div class='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+        <!-- Box 1 -->
+        <div
+          class='p-6 border border-gray-200 rounded-md shadow-sm flex flex-col items-center justify-center'
+        >
+          <Icon name='mdi:bank' class='text-6xl text-gray-600 mb-4' />
+          <h3 class='text-xl font-bold mt-4'>Railings</h3>
         </div>
-        <div class='p-4 border border-gray-200 rounded-md shadow-sm'>
-          <h3 class='text-xl font-bold'>Gates</h3>
-          <p class='text-gray-500'>Sturdy and custom-designed.</p>
+        <!-- Box 2 -->
+        <div
+          class='p-6 border border-gray-200 rounded-md shadow-sm flex flex-col items-center justify-center'
+        >
+          <Icon name='mdi:palette' class='text-6xl text-gray-600 mb-4' />
+          <h3 class='text-xl font-bold mt-4'>Gates</h3>
         </div>
-        <div class='p-4 border border-gray-200 rounded-md shadow-sm'>
-          <h3 class='text-xl font-bold'>Furniture</h3>
-          <p class='text-gray-500'>Unique pieces for your home.</p>
+        <!-- Box 3 -->
+        <div
+          class='p-6 border border-gray-200 rounded-md shadow-sm flex flex-col items-center justify-center'
+        >
+          <Icon name='mdi:sofa' class='text-6xl text-gray-600 mb-4' />
+          <h3 class='text-xl font-bold mt-4'>Furniture</h3>
+        </div>
+        <!-- Box 4 -->
+        <div
+          class='p-6 border border-gray-200 rounded-md shadow-sm flex flex-col items-center justify-center'
+        >
+          <Icon name='mdi:palette' class='text-6xl text-gray-600 mb-4' />
+          <h3 class='text-xl font-bold mt-4'>Metal Drawings</h3>
+        </div>
+        <!-- Box 5 -->
+        <div
+          class='p-6 border border-gray-200 rounded-md shadow-sm flex flex-col items-center justify-center'
+        >
+          <Icon name='mdi:brush' class='text-6xl text-gray-600 mb-4' />
+          <h3 class='text-xl font-bold mt-4'>Paintings</h3>
+        </div>
+        <!-- Box 6 -->
+        <div
+          class='p-6 border border-gray-200 rounded-md shadow-sm flex flex-col items-center justify-center'
+        >
+          <Icon name='mdi:tree' class='text-6xl text-gray-600 mb-4' />
+          <h3 class='text-xl font-bold mt-4'>Garden Work</h3>
+        </div>
+        <!-- Box 7 -->
+        <div
+          class='p-6 border border-gray-200 rounded-md shadow-sm flex flex-col items-center justify-center'
+        >
+          <Icon name='mdi:wall' class='text-6xl text-gray-600 mb-4' />
+          <h3 class='text-xl font-bold mt-4'>Wall Hangings</h3>
+        </div>
+        <!-- Box 8 -->
+        <div
+          class='p-6 border border-gray-200 rounded-md shadow-sm flex flex-col items-center justify-center'
+        >
+          <Icon name='mdi:palette' class='text-6xl text-gray-600 mb-4' />
+          <h3 class='text-xl font-bold mt-4'>Sculptures</h3>
+        </div>
+        <!-- Box 9 -->
+        <div
+          class='p-6 border border-gray-200 rounded-md shadow-sm flex flex-col items-center justify-center'
+        >
+          <Icon name='mdi:artstation' class='text-6xl text-gray-600 mb-4' />
+          <h3 class='text-xl font-bold mt-4'>Custom Artwork</h3>
         </div>
       </div>
     </section>
